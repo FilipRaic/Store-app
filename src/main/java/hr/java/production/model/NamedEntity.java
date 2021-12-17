@@ -1,20 +1,32 @@
 package hr.java.production.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Abstract class that is extended to every class whose objects need a name
  */
-public abstract class NamedEntity {
+public abstract class NamedEntity implements Serializable {
+    private Long id;
     private String name;
 
     /**
-     * Constructor for name
+     * Constructor for NamedEntity taking id and name
      *
+     * @param id Used to allow objects to have an id
      * @param name Used to allow objects to have a name
      */
-    public NamedEntity(String name) {
+    public NamedEntity(Long id, String name) {
+        this.id = id;
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -1,5 +1,6 @@
 package hr.java.production.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -7,7 +8,7 @@ import java.util.Objects;
  * Class used for creating an object that stores information of what  a certain item is
  * Extends class NamedEntity
  */
-public class Item extends NamedEntity {
+public class Item extends NamedEntity implements Serializable {
     private Category category;
     private BigDecimal width;
     private BigDecimal height;
@@ -28,8 +29,8 @@ public class Item extends NamedEntity {
      * @param sellingPrice Used to give the object selling price
      * @param discount Used to give the object a discount
      */
-    public Item(String name, Category category, BigDecimal width, BigDecimal height, BigDecimal length, BigDecimal productionCost, BigDecimal sellingPrice, Discount discount) {
-        super(name);
+    public Item(Long id, String name, Category category, BigDecimal width, BigDecimal height, BigDecimal length, BigDecimal productionCost, BigDecimal sellingPrice, Discount discount) {
+        super(id, name);
         this.category = category;
         this.width = width;
         this.height = height;
@@ -37,6 +38,10 @@ public class Item extends NamedEntity {
         this.productionCost = productionCost;
         this.sellingPrice = sellingPrice;
         this.discount = discount;
+    }
+
+    public Item(Long id, String name) {
+        super(id, name);
     }
 
     public Category getCategory() {
@@ -120,7 +125,6 @@ public class Item extends NamedEntity {
 
     @Override
     public String toString() {
-        return "Naziv proizvoda: " + this.getName() +
-                " - " + this.calculatePrice();
+        return getName() + "\n";
     }
 }

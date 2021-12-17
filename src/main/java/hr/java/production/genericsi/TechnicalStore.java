@@ -13,13 +13,13 @@ public class TechnicalStore <T extends Technical> extends Store {
 
     private List<T> listOfTechnic;
 
-    public TechnicalStore(String name, String webAddress, Set<Item> items, List<T> listOfTechnic) {
-        super(name, webAddress, items);
+    public TechnicalStore(Long id, String name, String webAddress, Set<Item> items, List<T> listOfTechnic) {
+        super(id, name, webAddress, items);
         this.listOfTechnic = listOfTechnic;
     }
 
-    public TechnicalStore(String name, String webAddress, List<T> listOfTechnic) {
-        super(name, webAddress);
+    public TechnicalStore(Long id, String name, String webAddress, List<T> listOfTechnic) {
+        super(id, name, webAddress);
         this.listOfTechnic = listOfTechnic;
     }
 
@@ -40,7 +40,11 @@ public class TechnicalStore <T extends Technical> extends Store {
 
     @Override
     public String toString() {
-        return "Naziv trgovine: " + this.getName() +
-                " - " + listOfTechnic.size();
+        String list = "";
+
+        for (Item item : getItems())
+            list += item.getName() + "\n";
+
+        return list;
     }
 }

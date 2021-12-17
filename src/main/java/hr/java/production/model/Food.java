@@ -7,7 +7,7 @@ import java.util.Objects;
  * Class used for creating an object that can has more information than an Item object
  * Implements interface Edible
  */
-public class Food extends Item implements Edible{
+public class Food extends Item implements Edible {
     private final int calPerKg = 1000;
     private BigDecimal weight;
 
@@ -24,8 +24,8 @@ public class Food extends Item implements Edible{
      * @param discount Inherited parameter, used to give the object a discount
      * @param weight Used to give the object weight
      */
-    public Food(String name, Category category, BigDecimal width, BigDecimal height, BigDecimal length, BigDecimal productionCost, BigDecimal sellingPrice, Discount discount, BigDecimal weight) {
-        super(name, category, width, height, length, productionCost, sellingPrice, discount);
+    public Food(Long id, String name, Category category, BigDecimal width, BigDecimal height, BigDecimal length, BigDecimal productionCost, BigDecimal sellingPrice, Discount discount, BigDecimal weight) {
+        super(id, name, category, width, height, length, productionCost, sellingPrice, discount);
         this.weight = weight;
     }
 

@@ -2,12 +2,13 @@ package hr.java.production.model;
 
 import hr.java.production.enums.Cities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Class used for creating an object that stores information of addresses for factories and stores
  */
-public class Address {
+public class Address implements Serializable {
     private String street;
     private String houseNumber;
     private Cities city;
@@ -16,9 +17,11 @@ public class Address {
      * Builder pattern for address objects
      */
     public static class Builder {
-        private final String street;
+        private String street;
         private String houseNumber;
         private Cities city;
+
+        public Builder () { }
 
         /**
          * Builder constructor that only takes String street

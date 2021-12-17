@@ -1,5 +1,6 @@
 package hr.java.production.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -7,7 +8,7 @@ import java.util.*;
  * Class used for creating an object that stores information about a store and which items that store sells
  * Extends class NamedEntity
  */
-public class Store extends NamedEntity{
+public class Store extends NamedEntity implements Serializable {
     private String webAddress;
     private Set<Item> items;
 
@@ -18,14 +19,14 @@ public class Store extends NamedEntity{
      * @param webAddress Used to store a string that represents a web address
      * @param items Used to store an array of items of the store in the object
      */
-    public Store(String name, String webAddress, Set<Item> items) {
-        super(name);
+    public Store(Long id, String name, String webAddress, Set<Item> items) {
+        super(id, name);
         this.webAddress = webAddress;
         this.items = items;
     }
 
-    public Store(String name, String webAddress) {
-        super(name);
+    public Store(Long id, String name, String webAddress) {
+        super(id, name);
         this.webAddress = webAddress;
     }
 
@@ -80,7 +81,11 @@ public class Store extends NamedEntity{
 
     @Override
     public String toString() {
-        return "Naziv trgovine: " + this.getName() +
-                " - " + items.size();
+        String list = "";
+
+        for (Item item : items)
+            list += item.getName() + "\n";
+
+        return list;
     }
 }

@@ -1,12 +1,13 @@
 package hr.java.production.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Class used for creating an object that stores information for name and description for a category
  * Extends class NamedEntity
  */
-public class Category extends NamedEntity {
+public class Category extends NamedEntity implements Serializable {
     private String description;
 
     /**
@@ -15,8 +16,8 @@ public class Category extends NamedEntity {
      * @param name Used to invoke the NamedEntity constructor and store the name of the category in the object
      * @param description Used to store a description of the category in the object
      */
-    public Category(String name, String description) {
-        super(name);
+    public Category(Long id, String name, String description) {
+        super(id, name);
         this.description = description;
     }
 

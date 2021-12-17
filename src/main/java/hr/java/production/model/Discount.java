@@ -1,11 +1,12 @@
 package hr.java.production.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Record for adding a discount object to an item
  */
-public record Discount(int discountAmount) {
+public record Discount(int discountAmount) implements Serializable {
 
     /**
      * Used to create a record of a discount

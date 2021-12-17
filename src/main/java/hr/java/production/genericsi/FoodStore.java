@@ -13,8 +13,8 @@ public class FoodStore <T extends Edible> extends Store {
 
     private List<T> listOfEdibles;
 
-    public FoodStore(String name, String webAddress, List<T> listOfEdibles) {
-        super(name, webAddress);
+    public FoodStore(Long id, String name, String webAddress, List<T> listOfEdibles) {
+        super(id, name, webAddress);
         this.listOfEdibles = listOfEdibles;
     }
 
@@ -35,7 +35,11 @@ public class FoodStore <T extends Edible> extends Store {
 
     @Override
     public String toString() {
-        return "Naziv trgovine: " + this.getName() +
-                " - " + listOfEdibles.size();
+        String list = "";
+
+        for (Item item : getItems())
+            list += item.getName() + "\n";
+
+        return list;
     }
 }

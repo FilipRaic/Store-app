@@ -1,5 +1,6 @@
 package hr.java.production.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -7,7 +8,7 @@ import java.util.*;
  * Class used for creating an object that stores information about a factory and which items that factory makes
  * Extends class NamedEntity
  */
-public class Factory extends NamedEntity{
+public class Factory extends NamedEntity implements Serializable {
     private Address address;
     private Set<Item> items;
 
@@ -18,8 +19,8 @@ public class Factory extends NamedEntity{
      * @param address Used to store an address of the factory in the object
      * @param items Used to store an array of items of the factory in the object
      */
-    public Factory(String name, Address address, Set<Item> items){
-        super(name);
+    public Factory(Long id, String name, Address address, Set<Item> items){
+        super(id, name);
         this.address = address;
         this.items = items;
     }
@@ -75,5 +76,15 @@ public class Factory extends NamedEntity{
             maximum = tmp[i].max(tmp[i + 1]);
 
         return maximum;
+    }
+
+    @Override
+    public String toString() {
+        String list = "";
+
+        for (Item item : items)
+            list += item.getName() + "\n";
+
+        return list;
     }
 }

@@ -7,7 +7,7 @@ import java.util.Objects;
  * Class used for creating an object that can has more information than an Item object
  * Extends class Item and implements interface Technical
  */
-public final class Laptop extends Item implements Technical{
+public final class Laptop extends Item implements Technical {
     private int warranty;
 
     /**
@@ -23,8 +23,8 @@ public final class Laptop extends Item implements Technical{
      * @param discount Inherited parameter, used to give the object a discount
      * @param warranty Used to add a warranty period to an object
      */
-    public Laptop(String name, Category category, BigDecimal width, BigDecimal height, BigDecimal length, BigDecimal productionCost, BigDecimal sellingPrice, Discount discount, int warranty) {
-        super(name, category, width, height, length, productionCost, sellingPrice, discount);
+    public Laptop(Long id, String name, Category category, BigDecimal width, BigDecimal height, BigDecimal length, BigDecimal productionCost, BigDecimal sellingPrice, Discount discount, int warranty) {
+        super(id, name, category, width, height, length, productionCost, sellingPrice, discount);
         this.warranty = warranty;
     }
 
